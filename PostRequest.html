@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <input type="button" value="发送GET请求" onclick="getRequest()"/>
+        <input type="button" value="发送POST请求" onclick="postRequest()"/>    
+    </div>    
+</body>
+<script>
+    var getRequest =function(){
+        //本地请求的话，因为请求了跨域数据，浏览器会报错，但是在node.js里已经能接收到GET请求了
+        $.get("http://127.0.0.1:3000?id=1&name=gqx",function(data){
+            console.log(data);
+        });
+    };
+
+    var postRequest =function(){
+        //本地请求的话，因为请求了跨域数据，浏览器会报错，但是在node.js里已经能接收到POST请求了
+        $.post("http://127.0.0.1:3000",{"id":"1","name":"gqx"},function(data){
+            console.log(data);
+        });
+    };
+</script>
+</html>
